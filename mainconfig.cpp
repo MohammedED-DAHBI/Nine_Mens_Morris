@@ -1,6 +1,6 @@
 #include "mainconfig.h"
 #include <QDebug>
-MainConfig::MainConfig() : configFile("../../config/global.ini")
+MainConfig::MainConfig() : configFile("./config/global.ini")
 {
     INIReader reader(configFile);
     if (reader.ParseError() < 0)

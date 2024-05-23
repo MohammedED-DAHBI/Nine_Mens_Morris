@@ -14,7 +14,7 @@ HistoryWidget::HistoryWidget(QWidget *parent)
     qDebug() << "History Widget created\n";
     QString currentPath = QDir::currentPath();
     qDebug() << "Current Working Directory: " << currentPath;
-    QDir dir("../../savegames");
+    QDir dir("./savegames");
     QStringList files = dir.entryList(QDir::Files);
     for (const auto& file : files)
     {
@@ -51,7 +51,7 @@ void HistoryWidget::deleteGame(QString f)
     cardLayout->removeWidget(gameCardMap.value(f));
     delete gameCardMap.value(f);
     gameCardMap.remove(f);
-    f.prepend("../../savegames/");
+    f.prepend("./savegames/");
     if (QFile::remove(f))
     {
         qDebug() << "El file removed";
@@ -64,7 +64,7 @@ void HistoryWidget::deleteGame(QString f)
 
 void HistoryWidget::saveGame()
 {
-    QString fileName = "../../savegames/savegame_";
+    QString fileName = "./savegames/savegame_";
     fileName.append(std::to_string(mainConfig.getSaveCount()));
     fileName.append(".txt");
     GameCard *gc = new GameCard(fileName.mid(16));

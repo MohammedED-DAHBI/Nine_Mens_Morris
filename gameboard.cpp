@@ -119,7 +119,7 @@ void GameBoard::setGameSettings(GameMode m, int d, int p)
 
 void GameBoard::loadGame(QString s)
 {
-    s.prepend("../../savegames/");
+    s.prepend("./savegames/");
     qDebug() << "game loading";
     g.load(s);
     gameMode = g.getGameMode();

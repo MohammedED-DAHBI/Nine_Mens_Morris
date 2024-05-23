@@ -49,7 +49,7 @@ void Game::load(QString s)
 void Game::save()
 {
     std::ofstream out;
-    std::string filename = "../../savegames/savegame_";
+    std::string filename = "./savegames/savegame_";
     mainConfig.incrementSaveCount();
     filename.append(std::to_string(mainConfig.getSaveCount()));
     filename.append(".txt");
